@@ -10,30 +10,30 @@
     },
     "classnamespace": "box",
     "rect": [
-      90.0,
-      90.0,
-      1470.0,
-      1070.0
+      90,
+      90,
+      1470,
+      1070
     ],
     "openrect": [
-      0.0,
-      0.0,
-      505.0,
-      162.0
+      0,
+      0,
+      505,
+      162
     ],
     "bglocked": 0,
     "openinpresentation": 1,
-    "default_fontsize": 11.0,
+    "default_fontsize": 11,
     "default_fontface": 0,
     "default_fontname": "Ableton Sans Medium",
     "gridonopen": 1,
     "gridsize": [
-      10.0,
-      10.0
+      10,
+      10
     ],
     "gridsnaponopen": 1,
     "objectsnaponopen": 1,
-    "devicewidth": 505.0,
+    "devicewidth": 505,
     "description": "Push 3 Standalone friendly pitch tuner and reference oscillator; rebuilt from core Pitch Pipe concept by Iftah.",
     "digest": "Native Max/MSP pitch detection + reference oscillator, with Push parameter banks.",
     "tags": "tuner pitch pipe push standalone maxforlive",
@@ -64,7 +64,7 @@
             0.16,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
         }
       },
       {
@@ -93,7 +93,7 @@
             0.66,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
         }
       },
       {
@@ -122,7 +122,7 @@
             0.88,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
         }
       },
       {
@@ -151,7 +151,7 @@
             0.88,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
         }
       },
       {
@@ -324,7 +324,7 @@
           "parameter_enable": 1,
           "varname": "P3_detnote",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "",
@@ -372,7 +372,7 @@
           "parameter_enable": 1,
           "varname": "P3_detcents",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "float"
@@ -419,7 +419,7 @@
           "parameter_enable": 1,
           "varname": "P3_dethz",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "float"
@@ -466,7 +466,7 @@
           "parameter_enable": 1,
           "varname": "P3_signal",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "float"
@@ -512,7 +512,7 @@
           "parameter_enable": 1,
           "varname": "P3_base",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "float"
@@ -562,7 +562,7 @@
           "parameter_enable": 1,
           "varname": "P3_toneon",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             ""
@@ -738,7 +738,7 @@
           "parameter_enable": 1,
           "varname": "P3_tonenote",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "",
@@ -785,7 +785,7 @@
           "parameter_enable": 1,
           "varname": "P3_tonelevel",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "float"
@@ -835,7 +835,7 @@
           "parameter_enable": 1,
           "varname": "P3_wave",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             ""
@@ -886,7 +886,7 @@
           "parameter_enable": 1,
           "varname": "P3_thru",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             ""
@@ -1723,7 +1723,7 @@
             0.88,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
         }
       },
       {
@@ -1745,7 +1745,112 @@
             0.88,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
+        }
+      },
+      {
+        "box": {
+          "id": "obj-71",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            300,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-72",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            395,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-73",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            490,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-74",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            585,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-75",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            680,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-76",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            775,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-77",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            40,
+            960,
+            700,
+            20
+          ],
+          "text": "Read existing Live parameter values on load. Never bang live.text toggles."
         }
       }
     ],
@@ -2621,7 +2726,7 @@
             0
           ],
           "destination": [
-            "obj-9",
+            "obj-71",
             0
           ]
         }
@@ -2633,7 +2738,7 @@
             1
           ],
           "destination": [
-            "obj-11",
+            "obj-72",
             0
           ]
         }
@@ -2645,7 +2750,7 @@
             2
           ],
           "destination": [
-            "obj-12",
+            "obj-73",
             0
           ]
         }
@@ -2657,7 +2762,7 @@
             3
           ],
           "destination": [
-            "obj-10",
+            "obj-74",
             0
           ]
         }
@@ -2669,7 +2774,7 @@
             4
           ],
           "destination": [
-            "obj-13",
+            "obj-75",
             0
           ]
         }
@@ -2679,6 +2784,78 @@
           "source": [
             "obj-67",
             5
+          ],
+          "destination": [
+            "obj-76",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-71",
+            0
+          ],
+          "destination": [
+            "obj-9",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-72",
+            0
+          ],
+          "destination": [
+            "obj-11",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-73",
+            0
+          ],
+          "destination": [
+            "obj-12",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-74",
+            0
+          ],
+          "destination": [
+            "obj-10",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-75",
+            0
+          ],
+          "destination": [
+            "obj-13",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-76",
+            0
           ],
           "destination": [
             "obj-14",
