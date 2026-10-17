@@ -1,0 +1,30 @@
+name: Validate Pitch Pipe P3
+on:
+  push:
+    branches: [main, 'feature/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate patch graph, Push banks, parameters and tuning math
+        run: python -m unittest discover -s tests -v
+      - name: Build candidate AMXD archive
+        run: python tools/build_amxd.py
+      - name: Verify generated container
+        run: python -c "from tools.build_amxd import decode_amxd; from pathlib import Path; assert decode_amxd(Path('dist/Pitch Pipe P3.amxd').read_bytes()) == Path('src/Pitch Pipe P3.maxpat').read_bytes()"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pitch-pipe-p3-UNVERIFIED-candidate
+          path: |
+            dist/Pitch Pipe P3.amxd
+            src/Pitch Pipe P3.maxpat
+          if-no-files-found: error
