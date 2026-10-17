@@ -124,6 +124,22 @@ class PatchTests(unittest.TestCase):
             self.assertLess(abs(cents), 0.01)
         self.assertAlmostEqual(calc(440 * 2 ** (25 / 1200), 440)[1], 25, places=5)
 
+    def test_loadbang_does_not_toggle_live_text(self):
+        # Cycling '74: a bang received by live.text TOGGLES its state.
+        # Initialization must send 'outputvalue', not a direct bang.
+        live_text = {i for i, b in self.boxes.items() if b["maxclass"] == "live.text"}
+        triggers = {i for i, b in self.boxes.items() if b.get("text", "").startswith("t ")}
+        for line in self.lines:
+            if line["destination"][0] in live_text:
+                origin = line["source"][0]
+                self.assertNotIn(origin, triggers, "live.text receives a trigger bang")
+                self.assertEqual(self.boxes[origin].get("text"), "outputvalue")
+        initializers = [line for line in self.lines if line["source"][0] == self.by_text["t b b b b b b"]]
+        self.assertEqual(len(initializers), 6)
+        for line in initializers:
+            message = self.boxes[line["destination"][0]]
+            self.assertEqual(message.get("text"), "outputvalue")
+
     def test_archive_roundtrip(self):
         binary = encode_amxd(self.raw)
         self.assertEqual(decode_amxd(binary), self.raw)
