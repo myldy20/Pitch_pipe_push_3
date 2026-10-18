@@ -365,7 +365,7 @@
                 0
               ],
               "parameter_initial_enable": 1,
-              "parameter_info": "Deviation from the nearest semitone in cents. Read-only status.",
+              "parameter_info": "Cents: negative = flat; positive = sharp; aim for 0 cents.",
               "parameter_invisible": 4
             }
           },
@@ -1892,7 +1892,7 @@
         "box": {
           "id": "obj-79",
           "maxclass": "comment",
-          "text": "CENTS (minus=flat, plus=sharp)",
+          "text": "CENTS (+/-)",
           "numinlets": 1,
           "numoutlets": 0,
           "patching_rect": [
