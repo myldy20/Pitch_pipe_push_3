@@ -10,30 +10,30 @@
     },
     "classnamespace": "box",
     "rect": [
-      90.0,
-      90.0,
-      1470.0,
-      1070.0
+      90,
+      90,
+      1470,
+      1070
     ],
     "openrect": [
-      0.0,
-      0.0,
-      505.0,
-      162.0
+      0,
+      0,
+      505,
+      192
     ],
     "bglocked": 0,
     "openinpresentation": 1,
-    "default_fontsize": 11.0,
+    "default_fontsize": 11,
     "default_fontface": 0,
     "default_fontname": "Ableton Sans Medium",
     "gridonopen": 1,
     "gridsize": [
-      10.0,
-      10.0
+      10,
+      10
     ],
     "gridsnaponopen": 1,
     "objectsnaponopen": 1,
-    "devicewidth": 505.0,
+    "devicewidth": 505,
     "description": "Push 3 Standalone friendly pitch tuner and reference oscillator; rebuilt from core Pitch Pipe concept by Iftah.",
     "digest": "Native Max/MSP pitch detection + reference oscillator, with Push parameter banks.",
     "tags": "tuner pitch pipe push standalone maxforlive",
@@ -64,7 +64,7 @@
             0.16,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
         }
       },
       {
@@ -93,7 +93,7 @@
             0.66,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
         }
       },
       {
@@ -122,7 +122,7 @@
             0.88,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
         }
       },
       {
@@ -151,7 +151,7 @@
             0.88,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
         }
       },
       {
@@ -324,7 +324,7 @@
           "parameter_enable": 1,
           "varname": "P3_detnote",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "",
@@ -365,14 +365,14 @@
                 0
               ],
               "parameter_initial_enable": 1,
-              "parameter_info": "Deviation from the nearest semitone in cents. Read-only status.",
+              "parameter_info": "Cents: negative = flat; positive = sharp; aim for 0 cents.",
               "parameter_invisible": 4
             }
           },
           "parameter_enable": 1,
           "varname": "P3_detcents",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "float"
@@ -419,7 +419,7 @@
           "parameter_enable": 1,
           "varname": "P3_dethz",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "float"
@@ -466,7 +466,7 @@
           "parameter_enable": 1,
           "varname": "P3_signal",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "float"
@@ -512,7 +512,7 @@
           "parameter_enable": 1,
           "varname": "P3_base",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "float"
@@ -562,12 +562,14 @@
           "parameter_enable": 1,
           "varname": "P3_toneon",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             ""
           ],
-          "texton": "On"
+          "texton": "On",
+          "automation": "Off",
+          "automationon": "On"
         }
       },
       {
@@ -738,7 +740,7 @@
           "parameter_enable": 1,
           "varname": "P3_tonenote",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "",
@@ -785,7 +787,7 @@
           "parameter_enable": 1,
           "varname": "P3_tonelevel",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             "float"
@@ -835,12 +837,14 @@
           "parameter_enable": 1,
           "varname": "P3_wave",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             ""
           ],
-          "texton": "Saw"
+          "texton": "Saw",
+          "automation": "Sine",
+          "automationon": "Saw"
         }
       },
       {
@@ -886,12 +890,14 @@
           "parameter_enable": 1,
           "varname": "P3_thru",
           "fontname": "Ableton Sans Medium",
-          "fontsize": 12.0,
+          "fontsize": 12,
           "outlettype": [
             "",
             ""
           ],
-          "texton": "On"
+          "texton": "On",
+          "automation": "Off",
+          "automationon": "On"
         }
       },
       {
@@ -951,7 +957,7 @@
             78,
             22
           ],
-          "text": "hip~ 45."
+          "text": "hip~ 15."
         }
       },
       {
@@ -966,7 +972,7 @@
             560,
             22
           ],
-          "text": "fzero~ @freqmin 25 @freqmax 1800 @size 4096 @period 2048 @threshold 0.012 @quiet 1"
+          "text": "fzero~ @freqmin 25 @freqmax 1800 @size 4096 @period 2048 @threshold 0.002 @quiet 1"
         }
       },
       {
@@ -1071,7 +1077,7 @@
             105,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1161,7 +1167,7 @@
             108,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1206,7 +1212,7 @@
             115,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1236,7 +1242,7 @@
             101,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1251,7 +1257,7 @@
             101,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1266,7 +1272,7 @@
             88,
             22
           ],
-          "text": "set 0"
+          "text": "assign 0"
         }
       },
       {
@@ -1326,7 +1332,7 @@
             110,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1716,14 +1722,14 @@
             750,
             18
           ],
-          "text": "Audio is always routed through. Fzero pitch detection works on summed, high-passed input.",
+          "text": "Signal: plugin~ -> stereo sum -> peakamp~ / bass-friendly hip~15 -> fzero~. Monitoring must be enabled.",
           "textcolor": [
             0.75,
             0.8,
             0.88,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
         }
       },
       {
@@ -1738,14 +1744,409 @@
             750,
             18
           ],
-          "text": "Original Pitch Pipe interface, OS keyboard hook and narration are not used.",
+          "text": "The tuner displays pitch status via assign (Visible Not Stored). Oscillator signal is separate.",
           "textcolor": [
             0.75,
             0.8,
             0.88,
             1
           ],
-          "fontsize": 11.0
+          "fontsize": 11
+        }
+      },
+      {
+        "box": {
+          "id": "obj-71",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            300,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-72",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            395,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-73",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            490,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-74",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            585,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-75",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            680,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-76",
+          "maxclass": "message",
+          "numinlets": 2,
+          "numoutlets": 1,
+          "patching_rect": [
+            775,
+            940,
+            85,
+            22
+          ],
+          "text": "outputvalue"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-77",
+          "maxclass": "comment",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            40,
+            960,
+            700,
+            20
+          ],
+          "text": "Read existing Live parameter values on load. Never bang live.text toggles."
+        }
+      },
+      {
+        "box": {
+          "id": "obj-78",
+          "maxclass": "comment",
+          "text": "NOTE",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            800,
+            270,
+            110,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            14,
+            86,
+            110,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-79",
+          "maxclass": "comment",
+          "text": "CENTS (+/-)",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            920,
+            270,
+            100,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            132,
+            86,
+            100,
+            16
+          ],
+          "fontsize": 8,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-80",
+          "maxclass": "comment",
+          "text": "HZ",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1040,
+            270,
+            70,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            218,
+            86,
+            70,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-81",
+          "maxclass": "comment",
+          "text": "INPUT LEVEL %",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1160,
+            270,
+            86,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            318,
+            86,
+            86,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-82",
+          "maxclass": "comment",
+          "text": "A4 REF (Hz)",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1280,
+            270,
+            80,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            14,
+            154,
+            80,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-83",
+          "maxclass": "comment",
+          "text": "TONE",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            800,
+            292,
+            65,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            102,
+            154,
+            65,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-84",
+          "maxclass": "comment",
+          "text": "PITCH",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            920,
+            292,
+            91,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            174,
+            154,
+            91,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-85",
+          "maxclass": "comment",
+          "text": "LEVEL",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1040,
+            292,
+            76,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            273,
+            154,
+            76,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-86",
+          "maxclass": "comment",
+          "text": "WAVE",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1160,
+            292,
+            65,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            357,
+            154,
+            65,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-87",
+          "maxclass": "comment",
+          "text": "AUDIO THRU",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1280,
+            292,
+            67,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            430,
+            154,
+            67,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
         }
       }
     ],
@@ -2621,7 +3022,7 @@
             0
           ],
           "destination": [
-            "obj-9",
+            "obj-71",
             0
           ]
         }
@@ -2633,7 +3034,7 @@
             1
           ],
           "destination": [
-            "obj-11",
+            "obj-72",
             0
           ]
         }
@@ -2645,7 +3046,7 @@
             2
           ],
           "destination": [
-            "obj-12",
+            "obj-73",
             0
           ]
         }
@@ -2657,7 +3058,7 @@
             3
           ],
           "destination": [
-            "obj-10",
+            "obj-74",
             0
           ]
         }
@@ -2669,7 +3070,7 @@
             4
           ],
           "destination": [
-            "obj-13",
+            "obj-75",
             0
           ]
         }
@@ -2679,6 +3080,78 @@
           "source": [
             "obj-67",
             5
+          ],
+          "destination": [
+            "obj-76",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-71",
+            0
+          ],
+          "destination": [
+            "obj-9",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-72",
+            0
+          ],
+          "destination": [
+            "obj-11",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-73",
+            0
+          ],
+          "destination": [
+            "obj-12",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-74",
+            0
+          ],
+          "destination": [
+            "obj-10",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-75",
+            0
+          ],
+          "destination": [
+            "obj-13",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-76",
+            0
           ],
           "destination": [
             "obj-14",
@@ -2741,23 +3214,23 @@
       "parameterbanks": {
         "0": {
           "index": 0,
-          "name": "Tuner / Tone",
+          "name": "Tuner",
           "parameters": [
             "Detected Note",
             "Detune Cents",
             "Detected Hz",
+            "Input Level",
             "A4 Reference",
             "Tone Enable",
             "Tone Note",
-            "Tone Level",
-            "Waveform"
+            "Tone Level"
           ]
         },
         "1": {
           "index": 1,
-          "name": "Input",
+          "name": "Output",
           "parameters": [
-            "Input Level",
+            "Waveform",
             "Audio Thru",
             "-",
             "-",
