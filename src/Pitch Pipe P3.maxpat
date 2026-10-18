@@ -19,7 +19,7 @@
       0,
       0,
       505,
-      162
+      192
     ],
     "bglocked": 0,
     "openinpresentation": 1,
@@ -567,7 +567,9 @@
             "",
             ""
           ],
-          "texton": "On"
+          "texton": "On",
+          "automation": "Off",
+          "automationon": "On"
         }
       },
       {
@@ -840,7 +842,9 @@
             "",
             ""
           ],
-          "texton": "Saw"
+          "texton": "Saw",
+          "automation": "Sine",
+          "automationon": "Saw"
         }
       },
       {
@@ -891,7 +895,9 @@
             "",
             ""
           ],
-          "texton": "On"
+          "texton": "On",
+          "automation": "Off",
+          "automationon": "On"
         }
       },
       {
@@ -951,7 +957,7 @@
             78,
             22
           ],
-          "text": "hip~ 45."
+          "text": "hip~ 15."
         }
       },
       {
@@ -966,7 +972,7 @@
             560,
             22
           ],
-          "text": "fzero~ @freqmin 25 @freqmax 1800 @size 4096 @period 2048 @threshold 0.012 @quiet 1"
+          "text": "fzero~ @freqmin 25 @freqmax 1800 @size 4096 @period 2048 @threshold 0.002 @quiet 1"
         }
       },
       {
@@ -1071,7 +1077,7 @@
             105,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1161,7 +1167,7 @@
             108,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1206,7 +1212,7 @@
             115,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1236,7 +1242,7 @@
             101,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1251,7 +1257,7 @@
             101,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1266,7 +1272,7 @@
             88,
             22
           ],
-          "text": "set 0"
+          "text": "assign 0"
         }
       },
       {
@@ -1326,7 +1332,7 @@
             110,
             22
           ],
-          "text": "prepend set"
+          "text": "prepend assign"
         }
       },
       {
@@ -1716,7 +1722,7 @@
             750,
             18
           ],
-          "text": "Audio is always routed through. Fzero pitch detection works on summed, high-passed input.",
+          "text": "Signal: plugin~ -> stereo sum -> peakamp~ / bass-friendly hip~15 -> fzero~. Monitoring must be enabled.",
           "textcolor": [
             0.75,
             0.8,
@@ -1738,7 +1744,7 @@
             750,
             18
           ],
-          "text": "Original Pitch Pipe interface, OS keyboard hook and narration are not used.",
+          "text": "The tuner displays pitch status via assign (Visible Not Stored). Oscillator signal is separate.",
           "textcolor": [
             0.75,
             0.8,
@@ -1851,6 +1857,296 @@
             20
           ],
           "text": "Read existing Live parameter values on load. Never bang live.text toggles."
+        }
+      },
+      {
+        "box": {
+          "id": "obj-78",
+          "maxclass": "comment",
+          "text": "NOTE",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            800,
+            270,
+            110,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            14,
+            86,
+            110,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-79",
+          "maxclass": "comment",
+          "text": "CENTS (minus=flat, plus=sharp)",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            920,
+            270,
+            100,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            132,
+            86,
+            100,
+            16
+          ],
+          "fontsize": 8,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-80",
+          "maxclass": "comment",
+          "text": "HZ",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1040,
+            270,
+            70,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            218,
+            86,
+            70,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-81",
+          "maxclass": "comment",
+          "text": "INPUT LEVEL %",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1160,
+            270,
+            86,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            318,
+            86,
+            86,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-82",
+          "maxclass": "comment",
+          "text": "A4 REF (Hz)",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1280,
+            270,
+            80,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            14,
+            154,
+            80,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-83",
+          "maxclass": "comment",
+          "text": "TONE",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            800,
+            292,
+            65,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            102,
+            154,
+            65,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-84",
+          "maxclass": "comment",
+          "text": "PITCH",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            920,
+            292,
+            91,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            174,
+            154,
+            91,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-85",
+          "maxclass": "comment",
+          "text": "LEVEL",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1040,
+            292,
+            76,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            273,
+            154,
+            76,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-86",
+          "maxclass": "comment",
+          "text": "WAVE",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1160,
+            292,
+            65,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            357,
+            154,
+            65,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "obj-87",
+          "maxclass": "comment",
+          "text": "AUDIO THRU",
+          "numinlets": 1,
+          "numoutlets": 0,
+          "patching_rect": [
+            1280,
+            292,
+            67,
+            16
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            430,
+            154,
+            67,
+            16
+          ],
+          "fontsize": 10,
+          "textcolor": [
+            0.7,
+            0.79,
+            0.84,
+            1
+          ]
         }
       }
     ],
@@ -2918,23 +3214,23 @@
       "parameterbanks": {
         "0": {
           "index": 0,
-          "name": "Tuner / Tone",
+          "name": "Tuner",
           "parameters": [
             "Detected Note",
             "Detune Cents",
             "Detected Hz",
+            "Input Level",
             "A4 Reference",
             "Tone Enable",
             "Tone Note",
-            "Tone Level",
-            "Waveform"
+            "Tone Level"
           ]
         },
         "1": {
           "index": 1,
-          "name": "Input",
+          "name": "Output",
           "parameters": [
-            "Input Level",
+            "Waveform",
             "Audio Thru",
             "-",
             "-",
