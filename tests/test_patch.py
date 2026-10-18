@@ -72,7 +72,7 @@ class PatchTests(unittest.TestCase):
     def test_tuner_does_not_hear_its_own_reference_tone(self):
         fzero = next(i for i, b in self.boxes.items() if b.get("text", "").startswith("fzero~ "))
         self.assertTrue(self.path_exists(self.by_text["plugin~"], fzero))
-        self.assertTrue(self.path_exists(self.by_text["hip~ 45."], fzero))
+        self.assertTrue(self.path_exists(self.by_text["hip~ 15."], fzero))
         self.assertTrue(self.path_exists(fzero, self.by_text["delay 900"]))
         for osc in ("cycle~", "saw~"):
             self.assertFalse(self.path_exists(self.by_text[osc], fzero))
@@ -118,6 +118,9 @@ class PatchTests(unittest.TestCase):
         for frequency, reference, note in [
             (440, 440, 69), (432, 432, 69), (220, 440, 57),
             (261.625565, 440, 60), (880, 440, 81),
+            (41.2034, 440, 28), (55.0, 440, 33),
+            (73.4162, 440, 38), (97.9989, 440, 43),
+            (30.8677, 440, 23),
         ]:
             actual, cents = calc(frequency, reference)
             self.assertEqual(actual, note)
@@ -139,6 +142,57 @@ class PatchTests(unittest.TestCase):
         for line in initializers:
             message = self.boxes[line["destination"][0]]
             self.assertEqual(message.get("text"), "outputvalue")
+
+    def test_bass_input_bandwidth_and_sensitivity(self):
+        highpass = [b["text"] for b in self.boxes.values()
+                    if b.get("text", "").startswith("hip~ ")]
+        self.assertEqual(highpass, ["hip~ 15."])
+        fzero = next(b["text"] for b in self.boxes.values()
+                     if b.get("text", "").startswith("fzero~ "))
+        self.assertIn("@freqmin 25", fzero)
+        self.assertIn("@size 4096", fzero)
+        self.assertIn("@threshold 0.002", fzero)
+        # Regression contract: lowest notes for 4- and 5-string bass must
+        # be above pitch detector's frequency floor.
+        for freq in (30.8677, 41.2034, 55.0, 73.4162, 97.9989):
+            self.assertGreater(freq, 25)
+            self.assertGreater(freq, 15)
+
+    def test_status_updates_reach_push_parameters(self):
+        # 'set' silences Max object outputs. 'assign' is documented as
+        # updating a Live UI parameter without storing that transient
+        # measured value in the Live Set.
+        measured = {"obj-5", "obj-6", "obj-7", "obj-8"}
+        for line in self.lines:
+            if line["destination"][0] in measured:
+                src = self.boxes[line["source"][0]]
+                self.assertTrue(src.get("text", "").startswith(("prepend assign", "assign ")),
+                                "Measurement must use assign to update Live's exposed value")
+        for box_id in measured:
+            val = self.boxes[box_id]["saved_attribute_attributes"]["valueof"]
+            self.assertEqual(val["parameter_invisible"], 4)
+
+    def test_push_toggle_labels_are_not_placeholder_vals(self):
+        for box in self.boxes.values():
+            if box["maxclass"] != "live.text":
+                continue
+            self.assertEqual(box["automation"], box["text"])
+            self.assertEqual(box["automationon"], box["texton"])
+            self.assertNotIn(box["automation"], ("val1", "val2"))
+            self.assertNotIn(box["automationon"], ("val1", "val2"))
+
+    def test_primary_tuner_bank_includes_input_meter(self):
+        banks = self.patch["parameters"]["parameterbanks"]
+        self.assertEqual(banks["0"]["parameters"][:4],
+                         ["Detected Note", "Detune Cents", "Detected Hz", "Input Level"])
+        self.assertIn("Audio Thru", banks["1"]["parameters"])
+        self.assertEqual(banks["0"]["name"], "Tuner")
+
+    def test_desktop_measurements_have_legends(self):
+        labels = {b["text"] for b in self.boxes.values()
+                  if b["maxclass"] == "comment" and b.get("presentation") == 1}
+        for label in ("NOTE", "HZ", "INPUT LEVEL %", "AUDIO THRU"):
+            self.assertIn(label, labels)
 
     def test_archive_roundtrip(self):
         binary = encode_amxd(self.raw)
