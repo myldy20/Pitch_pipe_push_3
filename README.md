@@ -29,7 +29,7 @@ For a bass connected to Push 3 Standalone:
 
 1. Plug bass into a Push input (use appropriate input mode/preamp/gain; watch for clipping).
 2. Create/select an **audio track**. Choose the physical input under Audio From and the correct channel; arm the track and use **Monitor = Auto** or **Monitor = In** for constant input. On Push Standalone, selecting an audio track normally arms it automatically.
-3. Put Pitch Pipe P3 **after** the incoming signal in the track's device chain. For a recorded audio clip, place it on that clip's audio track after source/processing devices and press Play.
+3. Put Pitch Pipe P3 **after** the audio source in the device chain. **For an existing audio clip** use Monitor = **Off**, or Auto with the track **not armed**; then press Play. Do **not** use Monitor = In while testing a clip: that mode suppresses clip playback. (For a live bass cable, the earlier Monitor = In / Auto armed instructions apply.)
 4. Begin with **Tone Off**, **Thru On**, **A4 = 440**, and play **one sustained bass note**. Check that the input meter rises above zero before interpreting the note/cents.
 5. Standard four-string tuning: **E1 41.20 Hz, A1 55.00 Hz, D2 73.42 Hz, G2 98.00 Hz**. Five-string low B0 is 30.87 Hz. Adjust each string until Cents is near 0.
 6. The Tone/Pitch/Level/Wave controls are for an **optional reference oscillator**. Turn Tone On and raise Level above 0 if you want to tune by ear. The Pitch control does not choose the note detected by the tuner.
