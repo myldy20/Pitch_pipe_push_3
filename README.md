@@ -21,6 +21,28 @@ The generated `dist/Pitch Pipe P3.amxd` is a **candidate** built using the AMXD 
 
 GitHub Actions runs the static checks on commits and PRs, then publishes the resulting file as the `pitch-pipe-p3-UNVERIFIED-candidate` workflow artifact.
 
+## Quick start: tuning a bass
+
+Pitch Pipe P3 is an **audio effect**, not a MIDI instrument. The four readouts are **Note**, **Cents** (negative = flat; positive = sharp), **Hz** (estimated input frequency) and **Input** (peak input level, 0–100%). If **Input remains 0 while playing**, the effect is not receiving audio at its input; first correct routing or monitoring before adjusting tuner sensitivity.
+
+For a bass connected to Push 3 Standalone:
+
+1. Plug bass into a Push input (use appropriate input mode/preamp/gain; watch for clipping).
+2. Create/select an **audio track**. Choose the physical input under Audio From and the correct channel; arm the track and use **Monitor = Auto** or **Monitor = In** for constant input. On Push Standalone, selecting an audio track normally arms it automatically.
+3. Put Pitch Pipe P3 **after** the incoming signal in the track's device chain. For a recorded audio clip, place it on that clip's audio track after source/processing devices and press Play.
+4. Begin with **Tone Off**, **Thru On**, **A4 = 440**, and play **one sustained bass note**. Check that the input meter rises above zero before interpreting the note/cents.
+5. Standard four-string tuning: **E1 41.20 Hz, A1 55.00 Hz, D2 73.42 Hz, G2 98.00 Hz**. Five-string low B0 is 30.87 Hz. Adjust each string until Cents is near 0.
+6. The Tone/Pitch/Level/Wave controls are for an **optional reference oscillator**. Turn Tone On and raise Level above 0 if you want to tune by ear. The Pitch control does not choose the note detected by the tuner.
+7. On Push, `Tuner` bank includes Note, Cents, Hz, Input, A4, Tone, Pitch, Level. `Output` bank includes Wave and Thru.
+
+If Input is still 0, verify the track's meters with Ableton's built-in Tuner as a routing reference. If Input moves but Note remains No Signal, raise the instrument/preamp level, play a single clean sustained note, and check the Max Console for `fzero~` errors. Unlike the built-in Tuner, this device still needs real-world validation of bass octave accuracy.
+
+The [official Push 3 manual's audio setup section](https://www.ableton.com/en/push/manual/#recording-audio) documents audio inputs and Auto/In monitoring.
+
+## Changes after first hardware feedback
+
+The initial version had undocumented numeric readouts; `live.text` toggles showed `val1/val2` on Push because automation labels were missing, and the analysis chain used a 45 Hz high-pass and comparatively high `fzero~` threshold. In this revision we add legends and automation labels, reduce the pre-detection filter cutoff to 15 Hz, change `fzero~` threshold to 0.002, and use `assign` (rather than silent `set`) to publish measurements to the Live-facing parameters. The last change is **intended** to make measurements update reliably on Push, but needs testing on your device.
+
 ## Install / hardware verification
 
 Use a current Ableton Live with Max for Live on Mac first. Open the AMXD on an audio track and check the Max Console for errors; then transfer to Push's User Library using Live's Places > Push browser. Full manual verification checklist: [docs/manual-test-plan.md](docs/manual-test-plan.md).
