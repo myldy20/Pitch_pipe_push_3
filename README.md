@@ -1,6 +1,6 @@
 # Pitch Pipe for Push 3 Standalone
 
-An **experimental, unverified** Max for Live audio effect derived from the *core functionality* of Iftah's Pitch Pipe. It has been reimplemented using built-in Max/MSP objects in an attempt to work on Push 3 Standalone (Linux). It is **not** a full port of the original, and it has **not yet been run in Ableton Live or on Push hardware**.
+An **experimental, unverified** Max for Live audio effect derived from the *core functionality* of Iftah's Pitch Pipe. It has been reimplemented using built-in Max/MSP objects in an attempt to work on Push 3 Standalone (Linux). It is **not** a full port of the original, and it **has loaded on desktop Live and Push 3 Standalone during first user testing**, but the user reported `No Signal` and zero input readouts, so its end-to-end tuning behavior remains **unverified**.
 
 ## Features
 - Monophonic input pitch estimate via native `fzero~`; nearest MIDI note, cents, Hz and input-level readouts
